@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="yuda.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:yuda"
+    Shell.FlyoutBehavior="Disabled"
+    xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui">
+
+
+
+    <Shell.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="Transparent" />
+    </Shell.Behaviors>
+   <ShellContent
+       x:Name="shellContent"
+        Title="Home"
+        ContentTemplate="{DataTemplate local:CustomTabPage}"
+        Route="MainPage" />
+    <!--<TabBar>
+        <Tab Title="Yuda" Icon="home_icon">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Xəritə"  Icon="map_page_icon" >
+            <ShellContent ContentTemplate="{DataTemplate local:MapPage}" />
+        </Tab>
+        <Tab Title="Məsləhətlər"  Icon="advice_page" >
+            <ShellContent ContentTemplate="{DataTemplate local:AdvicePage}" />
+        </Tab>
+    </TabBar>-->
+
+</Shell>

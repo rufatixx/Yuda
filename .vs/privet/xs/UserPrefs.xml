@@ -1,0 +1,45 @@
+﻿<Properties StartupConfiguration="{125050A9-F2A4-4C1C-BC56-AD8BD231EF2A}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="33.0.26" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="privet/Resources/AppIcon/appiconfg.svg">
+    <Files>
+      <File FileName="privet/MainPage.xaml.cs" Line="22" Column="20" />
+      <File FileName="privet/MainPage.xaml" Line="64" Column="1" />
+      <File FileName="privet/Platforms/Android/Resources/values/colors.xml" />
+      <File FileName="privet/Platforms/Android/MainActivity.cs" Line="7" Column="36" />
+      <File FileName="privet/App.xaml" Line="1" Column="1" />
+      <File FileName="privet/Platforms/iOS/Program.cs" />
+      <File FileName="privet/MauiProgram.cs" Line="1" Column="1" />
+      <File FileName="privet/Resources/Splash/splash.svg" Line="14" Column="57" />
+      <File FileName="privet/Resources/Styles/Colors.xaml" Line="7" Column="26" />
+      <File FileName="privet/Platforms/Android/MainApplication.cs" Line="1" Column="1" />
+      <File FileName="privet/App.xaml.cs" Line="1" Column="1" />
+      <File FileName="privet/Resources/Styles/Styles.xaml" Line="66" Column="55" />
+      <File FileName="privet/AppShell.xaml" Line="1" Column="1" />
+      <File FileName="privet/Platforms/Windows/Package.appxmanifest" Line="37" Column="13" />
+      <File FileName="privet/privet.csproj" Line="44" Column="68" />
+      <File FileName="privet/Resources/AppIcon/appicon.svg" Line="1" Column="1" />
+      <File FileName="privet/Resources/AppIcon/appiconfg.svg" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="privet" expanded="True">
+            <Node name="Yu Da" expanded="True" selected="True">
+              <Node name="Resources" expanded="True">
+                <Node name="AppIcon" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Yu_220Da PreferredExecutionTarget="Android.Pixel_4_API_31" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.Pixel_4_API_31" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>

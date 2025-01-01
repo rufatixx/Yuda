@@ -1,0 +1,66 @@
+﻿<Properties StartupConfiguration="{125050A9-F2A4-4C1C-BC56-AD8BD231EF2A}|Default">
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.Pixel_4_API_31" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.YuDa PreferredExecutionTarget="Android.Pixel_4_API_31" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Yuda/MapPage.xaml.cs">
+    <Files>
+      <File FileName="../../../../usr/local/share/dotnet/sdk/7.0.202/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" />
+      <File FileName="../../../../usr/local/share/dotnet/sdk/7.0.202/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.Sdk.FrameworkReferenceResolution.targets" />
+      <File FileName="../../.nuget/packages/xamarin.androidx.fragment/1.4.1.1/proguard/proguard.txt" />
+      <File FileName="../../.nuget/packages/communitytoolkit.maui/5.0.0/readme.txt" />
+      <File FileName="Yuda/YuDa.csproj" />
+      <File FileName="Yuda/MapPage.xaml" Line="1" Column="1" />
+      <File FileName="Yuda/MapPage.xaml.cs" Line="347" Column="18" />
+      <File FileName="Yuda/MainPage.xaml" />
+      <File FileName="Yuda/MainPage.xaml.cs" />
+      <File FileName="Yuda/AppShell.xaml" />
+      <File FileName="Yuda/AdvicePage.xaml" />
+      <File FileName="Yuda/CustomTabPage.xaml" />
+      <File FileName="Yuda/CustomTabPage.xaml.cs" />
+      <File FileName="Yuda/AppShell.xaml.cs" />
+      <File FileName="Yuda/App.xaml.cs" />
+      <File FileName="Yuda/Platforms/Android/MainActivity.cs" />
+      <File FileName="Yuda/Views/Registration/RegistrationFirstStep.xaml" />
+      <File FileName="Yuda/Views/Places/PlacesPage.xaml" Line="1" Column="1" />
+      <File FileName="Yuda/Views/Registration/RegistrationFirstStep.xaml.cs" />
+      <File FileName="Yuda/Views/Places/PlacesDetailsPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="Yuda/Views/Places/PlacesReservePage.xaml" />
+      <File FileName="Yuda/Views/Places/PlacesReservePage.xaml.cs" Line="25" Column="18" />
+      <File FileName="Yuda/Views/Places/PlacesDetailsPage.xaml" Line="1" Column="1" />
+      <File FileName="Yuda/Views/Places/PlacesPage.xaml.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Yuda" expanded="True">
+            <Node name="YuDa" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Platforms" expanded="True">
+                <Node name="Android" expanded="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Places" expanded="True">
+                  <Node name="PlacesDetailsPage.xaml" expanded="True" />
+                  <Node name="PlacesPage.xaml" expanded="True" />
+                  <Node name="PlacesReservePage.xaml" expanded="True" />
+                </Node>
+                <Node name="Registration" expanded="True">
+                  <Node name="RegistrationFirstStep.xaml" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="MapPage.xaml" expanded="True">
+                <Node name="MapPage.xaml.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="33.0.46" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

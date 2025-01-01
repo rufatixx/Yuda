@@ -1,0 +1,101 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = yuda
+build_property.ProjectDir = /Users/admin/Projects/Yuda/Yuda/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[/Users/admin/Projects/Yuda/Yuda/AdvicePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.AdvicePage.xaml
+build_metadata.AdditionalFiles.TargetPath = AdvicePage.xaml
+build_metadata.AdditionalFiles.RelativePath = AdvicePage.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/CustomTabPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.CustomTabPage.xaml
+build_metadata.AdditionalFiles.TargetPath = CustomTabPage.xaml
+build_metadata.AdditionalFiles.RelativePath = CustomTabPage.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/MapPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.MapPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MapPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MapPage.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/OnboardingPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.OnboardingPage.xaml
+build_metadata.AdditionalFiles.TargetPath = OnboardingPage.xaml
+build_metadata.AdditionalFiles.RelativePath = OnboardingPage.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Colors.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/Views/Login/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.Views.Login.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Login/LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Login/LoginPage.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/Views/Places/PlacesDetailsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.Views.Places.PlacesDetailsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Places/PlacesDetailsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Places/PlacesDetailsPage.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/Views/Places/PlacesPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.Views.Places.PlacesPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Places/PlacesPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Places/PlacesPage.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/Views/Places/PlacesReservePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.Views.Places.PlacesReservePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Places/PlacesReservePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Places/PlacesReservePage.xaml
+
+[/Users/admin/Projects/Yuda/Yuda/Views/Registration/RegistrationFirstStep.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = yuda.Views.Registration.RegistrationFirstStep.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Registration/RegistrationFirstStep.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Registration/RegistrationFirstStep.xaml

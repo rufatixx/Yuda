@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="yuda.OnboardingPage"
+             Title="OnboardingPage"
+            
+             BackgroundImageSource="onboarding_bg">
+    <VerticalStackLayout
+        
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="CenterAndExpand"
+        Margin="10">
+        <Label Text="Yuda ilə Avtomobilinizi sevindirin!" FontSize="Large" FontAttributes="Bold" Margin="0,20,0,10" TextColor="White" FontFamily="PoppinsBold"/>
+        <Label FontFamily="PoppinsRegular" Text="Tətbiq sayəsində avtomobilinizin ideal yuma vaxtını
+təyin etməklə pulunuza qənaət edin. Təkmilləşdirilmiş 
+xəritə ilə sizə  ən yaxın avtoyuma və servis 
+məntəqələri tapa bilərsiniz" Margin="0,0,0,20" TextColor="White"/>
+        <Label Text="Bir mobil tətbiqdən daha çoxu.🚘" Margin="0,0,0,20" TextColor="White" FontFamily="PoppinsRegular" />
+
+        <Frame BackgroundColor="#00E89D" Padding="0" CornerRadius="30" HorizontalOptions="Start" VerticalOptions="Center">
+            <Button Clicked="NextButtonCLickedAsync" Text="Davam et" BackgroundColor="#80F17E" TextColor="White" FontFamily="PoppinsBold" Padding="25,10,25,10" />
+        </Frame>
+    </VerticalStackLayout>
+
+</ContentPage>

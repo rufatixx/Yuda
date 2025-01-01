@@ -1,0 +1,218 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>yuda</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>Yuda</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>az.rufatixx.yuda</ApplicationId>
+		<ApplicationIdGuid>ba7b3255-453f-4c56-a5bb-1920db457494</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<Configurations>Debug;Release</Configurations>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	  <MauiImage Remove="Resources\Images\localization_icon.svg" />
+	  <MauiImage Remove="Resources\Images\sun.png" />
+	  <MauiImage Remove="Resources\Images\rain.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<!-- App icon for ios -->
+    <MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'" Include="Resources\AppIcon\app_icon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" ForegroundScale="0.85" />
+
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" ForegroundScale="0.45" />
+		
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#ffffff" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\localization_icon.svg" />
+	  <None Remove="Resources\Images\icon.png" />
+	  <None Remove="Resources\Images\icon %281%29.png" />
+	  <None Remove="Resources\Images\sun.png" />
+	  <None Remove="Resources\Images\rain.png" />
+	  <None Remove="Resources\Images\map_page_icon.svg" />
+	  <None Remove="Resources\Images\home_icon.svg" />
+	  <None Remove="Resources\Images\advice_page.svg" />
+	  <None Remove="Resources\Images\ezgif.com-crop %281%29.gif" />
+	  <None Remove="Resources\Images\output-onlinegiftools.gif" />
+	  <None Remove="Resources\Images\Vector.svg" />
+	  <None Remove="Resources\Images\bulb.svg" />
+	  <None Remove="Resources\Images\⚙.svg" />
+	  <None Remove="Resources\Images\bgdark.svg" />
+	  <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-SemiBold.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-Medium.ttf" />
+	  <None Remove="Views\" />
+	  <None Remove="Views\Login\" />
+	  <None Remove="Views\Registration\" />
+	  <None Remove="Views\Profile\" />
+	  <None Remove="Views\Places\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\localization_icon.svg" />
+	  <BundleResource Include="Resources\Images\sun.png" />
+	  <BundleResource Include="Resources\Images\rain.png" />
+	  <BundleResource Include="Resources\Images\map_page_icon.svg" />
+	  <BundleResource Include="Resources\Images\home_icon.svg" />
+	  <BundleResource Include="Resources\Images\advice_page.svg" />
+	  <BundleResource Include="Resources\Images\error.gif" />
+	  <BundleResource Include="Resources\Images\home.svg" />
+	  <BundleResource Include="Resources\Images\map.svg" />
+	  <BundleResource Include="Resources\Images\bulb.svg" />
+	  <BundleResource Include="Resources\Images\settings.svg" />
+	  <BundleResource Include="Resources\Images\close.svg" />
+	  <BundleResource Include="Resources\Images\onboarding_bg.svg" />
+	  <BundleResource Include="Resources\Fonts\Poppins-Regular.ttf" />
+	  <BundleResource Include="Resources\Fonts\Poppins-SemiBold.ttf" />
+	  <BundleResource Include="Resources\Fonts\Poppins-Bold.ttf" />
+	  <BundleResource Include="Resources\Fonts\Poppins-Medium.ttf" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Sharpnado.Tabs.Maui" Version="3.2.1" />
+	  <PackageReference Include="CommunityToolkit.Maui" Version="8.0.1" />
+	  <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.100" />
+	  <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.100" />
+	  <PackageReference Include="Microsoft.Maui.Graphics" Version="8.0.100" />
+	  <PackageReference Include="Microsoft.Maui.Maps" Version="8.0.100" />
+	  <PackageReference Include="Microsoft.Maui.Controls.Maps" Version="8.0.100" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Views\" />
+	  <Folder Include="Views\Login\" />
+	  <Folder Include="Views\Registration\" />
+	  <Folder Include="Views\Profile\" />
+	  <Folder Include="Views\Places\" />
+	</ItemGroup>
+	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
+    <AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidSigningKeyStore>..\myapp.keystore</AndroidSigningKeyStore>
+    <AndroidSigningKeyAlias>key</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>Asadov99</AndroidSigningKeyPass>
+    <AndroidSigningStorePass>Asadov99</AndroidSigningStorePass>
+</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+</Project>

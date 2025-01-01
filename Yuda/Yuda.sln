@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yuda", "Yuda.csproj", "{83748E94-5D67-4A52-BE4F-647774DD049C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83748E94-5D67-4A52-BE4F-647774DD049C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83748E94-5D67-4A52-BE4F-647774DD049C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83748E94-5D67-4A52-BE4F-647774DD049C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83748E94-5D67-4A52-BE4F-647774DD049C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4173F1D5-991D-4C67-AE47-6EB5928E7A65}
+	EndGlobalSection
+EndGlobal

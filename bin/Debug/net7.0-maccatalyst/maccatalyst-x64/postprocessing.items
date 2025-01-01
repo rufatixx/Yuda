@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="YuDa.app/Contents/MacOS/YuDa">
+      <BCSymbolMapName>YuDa.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>YuDa.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>/Users/admin/Projects/privet/privet/obj/Debug/net7.0-maccatalyst/maccatalyst-x64/mtouch-symbols.list</SymbolFile>
+      <DSymName>YuDa.app.dSYM</DSymName>
+      <SourceProjectPath>/Users/admin/Projects/privet/privet</SourceProjectPath>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,190 @@
+﻿<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="yuda.MapPage"
+             x:Name="mapPage">
+    <AbsoluteLayout>
+        <maps:Map x:Name="map"
+                  
+                  AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                  AbsoluteLayout.LayoutFlags="All"
+                  IsShowingUser="True"
+                  MapType="Street" />
+
+        <Frame
+    x:Name="joinUsBanner"
+    Opacity="0.90"
+    AbsoluteLayout.LayoutBounds="0.5, 0.88, 0.8, -1"
+    AbsoluteLayout.LayoutFlags="WidthProportional, XProportional,YProportional"
+    BackgroundColor="White"
+    CornerRadius="10"
+    Padding="10"
+    VerticalOptions="FillAndExpand">
+
+            <StackLayout Orientation="Horizontal" Padding="10"  VerticalOptions="FillAndExpand" MinimumHeightRequest="{Binding Source={x:Reference adBanner }, Path=Height}">
+                <Image Source="settings" VerticalOptions="Center" />
+                <VerticalStackLayout  HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+                    <Label
+        x:Name="adBanner"
+        Text="Avtoyuma və ya servisiniz var? Onda bizə müraciət edin" 
+        FontSize="Default" 
+        FontAttributes="Bold" 
+    
+        FontFamily="PoppinsMadium"
+        Margin="10,0"
+       />
+                    <BoxView HeightRequest="5" Color="Transparent"></BoxView>
+                </VerticalStackLayout>
+                <ImageButton 
+        Clicked="OnCloseJoinUsClicked" 
+        Source="close" 
+        
+        VerticalOptions="Start" />
+            </StackLayout>
+
+
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnJoinUsButtonTappedAsync" />
+            </Frame.GestureRecognizers>
+
+        </Frame>
+
+
+
+        <Frame AbsoluteLayout.LayoutBounds="0.95, 0.77, 40, 40"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+               BackgroundColor="White"
+               Padding="0"
+               Opacity="0.80"
+               CornerRadius="20"
+               IsVisible="{OnPlatform Android=false, iOS=true}">
+            <ImageButton Source="localization_icon"
+                         BackgroundColor="Transparent"
+                         WidthRequest="40"
+                         HeightRequest="40"
+                         Clicked="OnLocationButtonClicked"
+                         Aspect="AspectFill" />
+        </Frame>
+
+        <CollectionView
+            x:Name="filtersCollectonView"
+    AbsoluteLayout.LayoutBounds="0, 0, 1, -1"
+   
+    AbsoluteLayout.LayoutFlags="WidthProportional, XProportional"
+    BackgroundColor="Transparent"
+    ItemsSource="{Binding FilterOptions}"
+    ItemsLayout="HorizontalList"
+    SelectionMode="None"
+    HorizontalScrollBarVisibility="Never"
+    Margin="0,50,0,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                        <Frame
+                    Opacity="0.90"
+                    BackgroundColor="#1C2129"
+                    Padding="15"
+                    CornerRadius="25"
+                    HasShadow="False">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFilterTapped"/>
+                            </Frame.GestureRecognizers>
+                            <Label
+                        FontFamily="PoppinsRegular"
+                        Text="{Binding Name}"
+                        FontSize="Medium"
+                        TextColor="White"
+                        HeightRequest="25">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label"
+                                         Binding="{Binding IsSelected}"
+                                         Value="True">
+                                        <Setter Property="FontAttributes"
+                                        Value="Bold" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Label"
+                                         Binding="{Binding IsSelected}"
+                                         Value="False">
+                                        <Setter Property="FontAttributes"
+                                        Value="None" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Frame>
+                        <BoxView WidthRequest="10" BackgroundColor="Transparent" Color="Transparent" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <AbsoluteLayout AbsoluteLayout.LayoutFlags="All"
+                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+            <BoxView x:Name="BoxView" 
+             Color="#80000000" 
+             IsVisible="{Binding IsLoading}" 
+             AbsoluteLayout.LayoutFlags="All"
+             AbsoluteLayout.LayoutBounds="0, 0, 1, 1"/>
+            <ActivityIndicator x:Name="LoadingIndicator"
+               IsRunning="{Binding IsLoading}"
+               IsVisible="{Binding IsLoading}"
+              AbsoluteLayout.LayoutFlags="PositionProportional"
+               AbsoluteLayout.LayoutBounds="0.5, 0.5"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        </AbsoluteLayout>
+
+        <!--<CollectionView
+            AbsoluteLayout.LayoutBounds="0, 0, 1, -1"
+                       MaximumHeightRequest="50"
+                        AbsoluteLayout.LayoutFlags="WidthProportional, XProportional"
+                        BackgroundColor="Transparent"
+                        ItemsSource="{Binding FilterOptions}"
+                        ItemsLayout="HorizontalList"
+                        SelectionMode="None"
+                        HorizontalScrollBarVisibility="Never"
+                        Margin="0,50,0,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                       <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                    <Frame
+                         Opacity="0.90"
+                        BackgroundColor="#1C2129"
+                           Padding="0"
+                           CornerRadius="25"
+                           HasShadow="False">
+                        <Grid Padding="20">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFilterTapped" />
+                            </Grid.GestureRecognizers>
+                            <Label
+                               FontFamily="PoppinsRegular"
+                                Text="{Binding Name}"
+                                   FontSize="Medium"
+                                   TextColor="White"
+                                   HeightRequest="25">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label"
+                                                 Binding="{Binding IsSelected}"
+                                                 Value="True">
+                                        <Setter Property="FontAttributes"
+                                                Value="Bold" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Label"
+                                                 Binding="{Binding IsSelected}"
+                                                 Value="False">
+                                        <Setter Property="FontAttributes"
+                                                Value="None" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Frame>
+                     <BoxView WidthRequest="10" BackgroundColor="Transparent" Color="Transparent" />
+                      </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>-->
+    </AbsoluteLayout>
+</ContentView>

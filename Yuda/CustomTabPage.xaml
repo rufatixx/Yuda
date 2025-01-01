@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabs="http://sharpnado.com"
+             x:Class="yuda.CustomTabPage"
+             BackgroundColor="#F2F2F2">
+    <AbsoluteLayout>
+       
+         <ContentPresenter x:Name="TabContent" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"/>
+        <tabs:TabHostView
+            x:Name="tabView"
+               AbsoluteLayout.LayoutBounds="0, 1, 1, 90"
+                AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional"
+                  WidthRequest="330"
+                    HeightRequest="60"
+                    Margin="15"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    CornerRadius="30"
+                    IsSegmented="True"
+           SegmentedOutlineColor="Transparent"
+                  BackgroundColor="#1C2129"
+                    TabType="Fixed"
+                   >
+            <tabs:TabHostView.Tabs>
+                <tabs:MaterialUnderlinedTabItem
+                    UnselectedLabelColor="White"
+                      SelectedTabColor="#80F17E"
+                       UnderlineHeight="0"
+                 IconImageSource="home"
+                    IconOptions="IconOnly"
+                                        IconSize="24"
+                                        IconTextSpacing="0"
+                                        Label="FILMO"
+                  >
+                    <!--<tabs:BottomTabItem.Badge>
+                        <tabs:BadgeView BackgroundColor="White"
+                               
+                                TextColor="DodgerBlue"
+                                Text="999+" />
+                    </tabs:BottomTabItem.Badge>-->
+                </tabs:MaterialUnderlinedTabItem>
+                <tabs:MaterialUnderlinedTabItem
+                      UnselectedLabelColor="White"
+                      SelectedTabColor="#80F17E"
+                   
+                       UnderlineHeight="0"
+                    IconImageSource="map"
+                    IconOptions="IconOnly"
+                                        IconSize="24"
+                                        IconTextSpacing="0"
+                                        Label="FILMO">
+                    <!--<tabs:BottomTabItem.Badge>
+                        <tabs:BadgeView BackgroundColor="DodgerBlue"
+                                BadgePadding="4,2"
+                                TextSize="13"
+                                Text="aaaasd" />
+                    </tabs:BottomTabItem.Badge>-->
+                </tabs:MaterialUnderlinedTabItem>
+                <tabs:MaterialUnderlinedTabItem
+              UnselectedLabelColor="White"
+                      SelectedTabColor="#80F17E"
+                    UnderlineHeight="0"
+                    IconImageSource="bulb"
+                    IconOptions="IconOnly"
+                                        IconSize="34"
+                                        IconTextSpacing="0"
+                                        Label="FILMO" >
+                    <!--<tabs:BottomTabItem.Badge>
+                        <tabs:BadgeView Margin="20,5"
+                                BackgroundColor="Red"
+                                ShowIndicator="True"
+                                TextSize="14"
+                                Text="3" />
+                    </tabs:BottomTabItem.Badge>-->
+                </tabs:MaterialUnderlinedTabItem>
+            </tabs:TabHostView.Tabs>
+        </tabs:TabHostView>
+    </AbsoluteLayout>
+</ContentPage>
+
+<!--<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:tabs="http://sharpnado.com"
+             x:Class="yuda.AdvicePage"
+             BackgroundColor="#F2F2F2">
+    <ScrollView Orientation="Vertical">
+      
+    </ScrollView>
+
+</ContentPage>-->
+<!--<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="yuda.AdvicePage">
+    <ScrollView Orientation="Vertical">
+        <StackLayout Margin="20">
+            <Label Text="Avtomobil Məsləhətləri və Tövsiyələri" FontSize="Large" FontAttributes="Bold" Margin="0,20,0,10"/>
+            <Label Text="Burada siz avtomobilinizin saxlanması və onun düzgün işləməsi üçün faydalı məsləhətlər və tövsiyələr tapa bilərsiniz." Margin="0,0,0,20"/>
+
+
+            <StackLayout>
+                <Label Text="Yağ dəyişmə" FontSize="Medium" FontAttributes="Bold" Margin="0,20,0,10"/>
+                <Label Text="Yağın müntəzəm dəyişdirilməsi avtomobilə texniki qulluqun vacib hissəsidir. Yağın nə qədər tez-tez dəyişdirilməsinin tövsiyə olunduğunu görmək üçün avtomobilinizin təlimatına baxın və bu təlimatlara əməl etdiyinizə əmin olun." Margin="0,0,0,20"/>
+
+                <Label Text="Təkər təzyiqi" FontSize="Medium" FontAttributes="Bold" Margin="0,20,0,10"/>
+                <Label Text="Təkərinizin təzyiqini mütəmadi olaraq yoxlamaq həm təhlükəsizlik, həm də yanacaq səmərəliliyi üçün vacibdir. Təkərlərinizi tövsiyə olunan səviyyəyə qədər şişirdiyinizə əmin olun, bunu adətən avtomobilinizin təlimatında və ya sürücünün yan qapısının içərisindəki stikerdə tapa bilərsiniz." Margin="0,0,0,20"/>
+
+                <Label Text="Əyləc qəlibləri" FontSize="Medium" FontAttributes="Bold" Margin="0,20,0,10"/>
+                <Label Text="Əyləc qəlibləri zamanla köhnəlir və vaxtaşırı dəyişdirilməlidir. Əyləcləri basdığınız zaman cızıltı və ya üyüdülmə səsi eşidirsinizsə, əyləc yastiqciqlarınızı yoxlamağın və bəlkə də dəyişdirməyin vaxtıdır." Margin="0,0,0,20"/>
+
+                <Label Text="Hava filteri" FontSize="Medium" FontAttributes="Bold" Margin="0,20,0,10"/>
+                <Label Text="Avtomobilinizdəki hava filtri kir və zibilin mühərrikə daxil olmasının qarşısını alır, lakin zaman keçdikcə tıxanır. Hava filtrinin nə qədər tez-tez dəyişdirilməsini görmək üçün avtomobilinizin təlimatına baxın və bu təlimatlara əməl etdiyinizə əmin olun." Margin="0,0,0,20"/>
+
+                <Label Text="Akkumulyator" FontSize="Medium" FontAttributes="Bold" Margin="0,20,0,10"/>
+                <Label Text="Avtomobilinizdəki akkumulyator starterə və digər elektrik komponentlərinə enerji verməkdən məsuldur. Avtomobilinizin işə salınmasında problem yaranarsa, batareyanı dəyişdirməyin vaxtı gələ bilər." Margin="0,0,0,20"/>
+
+                <Label Text="Avtomobilinizin texniki xidmətinə dair hər hansı narahatlıq və ya sualınız varsa, həmişə avtomobilinizin təlimatına əməl edin və peşəkar mexaniklə məsləhətləşin." Margin="0,20,0,0"/>
+            </StackLayout>
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>-->

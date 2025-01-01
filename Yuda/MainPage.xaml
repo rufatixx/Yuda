@@ -1,0 +1,63 @@
+﻿<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabs="http://sharpnado.com"
+            
+             x:Class="yuda.MainPage"
+           
+             BackgroundColor="#f8f8f8">
+
+
+    <RefreshView
+        RefreshColor="Transparent"
+        x:Name="RefreshView"
+                 IsRefreshing="{Binding IsLoading}"
+                 Command="{Binding RefreshDataCommand}">
+
+        <Grid>
+
+            <ScrollView>
+                <StackLayout Orientation="Vertical">
+
+                    <VerticalStackLayout Margin="30">
+                        <Label x:Name="todayDate" ></Label>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label FontAttributes="Bold" Text="{Binding LocationName}" FontSize="25" FontFamily="PoppinsBold" />
+                            <Image Source="localization_icon" Grid.Column="1" HorizontalOptions="End" Margin="0,-20,0,0" />
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+
+                    <!--Spacer added before VerticalStackLayout-->
+
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+                        <Image x:Name="mainImage" IsAnimationPlaying="False" Source="{Binding Emoji}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill" BackgroundColor="Transparent"/>
+                        <Label FormattedText="{Binding CarWashRecommendation}" FontSize="Large" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Button Text="Məkan icazəsini təkrar istə" IsVisible="{Binding ShowRequestPermissionButton}" Command="{Binding OpenSettingsCommand}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                    <!--Spacer added after VerticalStackLayout-->
+
+                </StackLayout>
+            </ScrollView>
+
+
+            <Grid x:Name="FirstLoadingGrid">
+                <BoxView x:Name="BoxView" Color="#80000000" IsVisible="{Binding IsFirtstLoading}" />
+                <ActivityIndicator x:Name="LoadingIndicator"
+                       IsRunning="{Binding IsFirtstLoading}"
+                       IsVisible="{Binding IsFirtstLoading}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Grid>
+
+        </Grid>
+
+    </RefreshView>
+    <!--  Example of segmented tab bar (rounded floating tabs)  -->
+
+</ContentView>
