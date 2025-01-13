@@ -1,12 +1,9 @@
 ﻿<Properties StartupConfiguration="{83748E94-5D67-4A52-BE4F-647774DD049C}|Default">
-  <MonoDevelop.Ide.ItemProperties.Yuda PreferredExecutionTarget="Android.pixel_5_-_api_34" />
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_5_-_api_34" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Platforms/Android/AndroidManifest.xml">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="MapPage.xaml.cs" Line="1" Column="1" IsPinned="True" />
-      <File FileName="Platforms/Android/MainActivity.cs" />
+      <File FileName="MapPage.xaml.cs" Line="410" Column="5" IsPinned="True" />
+      <File FileName="Platforms/Android/MainActivity.cs" Line="10" Column="1" />
       <File FileName="Views/Places/PlacesReservePage.xaml.cs" />
       <File FileName="Views/Places/PlacesReservePage.xaml" />
       <File FileName="Views/Registration/RegistrationFirstStep.xaml.cs" />
@@ -18,48 +15,51 @@
       <File FileName="AdvicePage.xaml.cs" />
       <File FileName="Views/Places/PlacesPage.xaml" />
       <File FileName="App.xaml" />
-      <File FileName="AppShell.xaml" />
-      <File FileName="MainPage.xaml" />
+      <File FileName="AppShell.xaml" Line="12" Column="3" />
       <File FileName="MapPage.xaml" />
       <File FileName="OnboardingPage.xaml" />
       <File FileName="MauiProgram.cs" />
       <File FileName="../../../.nuget/packages/microsoft.maui.core/9.0.21/buildTransitive/Microsoft.Maui.Core.After.targets" />
       <File FileName="../../../.nuget/packages/communitytoolkit.maui/8.0.1/readme.txt" />
-      <File FileName="MainPage.xaml.cs" />
+      <File FileName="MainPage.xaml.cs" Line="1" Column="1" />
       <File FileName="Resources/Splash/splash.svg" />
-      <File FileName="Yuda.csproj" Line="88" Column="20" />
+      <File FileName="Yuda.csproj" Line="220" Column="35" />
+      <File FileName="Resources/AppIcon/appicon.svg" />
+      <File FileName="Resources/AppIcon/appiconfg.svg" />
+      <File FileName="MainPage.xaml" Line="42" Column="34" />
+      <File FileName="Platforms/Android/Resources/values/colors.xml" Line="5" Column="38" />
+      <File FileName="Resources/Styles/Colors.xaml" Line="7" Column="33" />
+      <File FileName="Resources/Styles/Styles.xaml" Line="364" Column="36" />
       <File FileName="Platforms/Android/AndroidManifest.xml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Yuda" expanded="True">
-            <Node name="Yuda" expanded="True">
-              <Node name="Dependencies" expanded="True" />
+            <Node name="Yuda">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Platforms" expanded="True">
                 <Node name="Android" expanded="True">
-                  <Node name="AndroidManifest.xml" selected="True" />
+                  <Node name="Resources" expanded="True">
+                    <Node name="values" expanded="True" />
+                  </Node>
                 </Node>
               </Node>
-              <Node name="Resources" expanded="True">
-                <Node name="AppIcon" expanded="True" />
-                <Node name="Images" expanded="True" />
-                <Node name="Raw" expanded="True" />
-                <Node name="Splash" expanded="True" />
-                <Node name="Styles" expanded="True" />
-              </Node>
-              <Node name="MapPage.xaml" expanded="True" />
+              <Node name="MainPage.xaml" expanded="True" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_5_-_api_34" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/admin/Projects/Yuda/Yuda/MainPage.xaml.cs" relfile="MainPage.xaml.cs" line="339" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.MonoDroid LastDeploySdkVersion="34.0.145" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Yuda PreferredExecutionTarget="Android.pixel_5_-_api_34" />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="34.0.145" />
 </Properties>

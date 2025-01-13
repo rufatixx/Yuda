@@ -13,6 +13,7 @@ namespace yuda
 {
     public partial class MapPage : ContentView
     {
+     
 
         private ObservableCollection<FilterOption> _filterOptions;
         public ObservableCollection<FilterOption> FilterOptions
@@ -41,6 +42,8 @@ namespace yuda
             InitializeComponent();
 
             InitializeAsync();
+
+           
 
 
         }
@@ -404,6 +407,7 @@ namespace yuda
             return null;
         }
     }
+    
 
     public class FilterOption : INotifyPropertyChanged
     {
@@ -457,6 +461,10 @@ namespace yuda
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+
+
     }
+
 
 }

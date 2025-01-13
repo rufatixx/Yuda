@@ -1,4 +1,6 @@
-﻿using Microsoft.Maui.Controls;
+﻿using Android.Runtime;
+using Microsoft.Maui.Controls;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Net.Http;
 using System.Text.Json;
@@ -11,48 +13,88 @@ namespace yuda
     {
         private WeatherViewModel _viewModel;
 
-        
-
         public MainPage()
         {
-            //InitializeComponent();
-            //LoadDataAsync();
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+                SetFormattedDate();
+                LoadDataAsync();
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
+            }
+        }
+
+        private void SetFormattedDate()
+        {
             var ci = new CultureInfo("az-AZ");
             var today = DateTime.Now;
             var monthName = ci.DateTimeFormat.GetMonthName(today.Month);
             monthName = ci.TextInfo.ToTitleCase(monthName);
             var formattedDate = $"{monthName} {today.Day}, {today.Year}";
-            todayDate.Text = formattedDate;
-            LoadDataAsync();
-           
-        }
-        //protected  override void OnAppearing()
-        //{
-        //    base.OnAppearing();
-           
-          
-        //    AppShell.SetNavBarIsVisible(this, false);
-        //}
 
-        //protected override void OnDisappearing()
-        //{
-        //    base.OnDisappearing();
-        //    AppShell.SetNavBarIsVisible(this, true);
-        //}
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                todayDate.Text = formattedDate;
+            });
+        }
+
+        private void ShowError(string message)
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                var errorLabel = new Label
+                {
+                    Text = $"Error: {message}",
+                    TextColor = Colors.Red,
+                    FontSize = 16,
+                    HorizontalOptions = LayoutOptions.Center,
+                    VerticalOptions = LayoutOptions.Center
+                };
+
+                Content = new StackLayout
+                {
+                    Children = { errorLabel }
+                };
+            });
+        }
+
         private void LoadDataAsync()
         {
-          
             _viewModel = new WeatherViewModel(mainImage);
             BindingContext = _viewModel;
-             _viewModel.FirstRun();
-          
-            //BindingContext = await WeatherViewModel.CreateAsync();
+
+            _viewModel.FirstRun();
         }
     }
 
+    [Preserve(AllMembers = true)]
     public class WeatherViewModel : BindableObject
     {
+        private ObservableCollection<RainyDay> _weatherItems;
+        public ObservableCollection<RainyDay> WeatherItems
+        {
+            get => _weatherItems;
+            set
+            {
+                _weatherItems = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _showRainyDays;
+        public bool ShowRainyDays
+        {
+            get => _showRainyDays;
+            set
+            {
+                _showRainyDays = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _locationName;
         public string LocationName
         {
@@ -60,17 +102,6 @@ namespace yuda
             set
             {
                 _locationName = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _isFirtstLoading;
-        public bool IsFirtstLoading
-        {
-            get => _isFirtstLoading;
-            set
-            {
-                _isFirtstLoading = value;
                 OnPropertyChanged();
             }
         }
@@ -121,31 +152,49 @@ namespace yuda
 
         public ICommand RefreshDataCommand { get; }
         public ICommand OpenSettingsCommand { get; }
-        Image mImage;
-        public WeatherViewModel(Image _mainImage)
+
+        private readonly Image _mainImage;
+        private bool _isRefreshing;
+
+        private bool _isFirtstLoading;
+        public bool IsFirtstLoading
         {
-            mImage = _mainImage;
-            RefreshDataCommand = new Command(async () =>
+            get => _isFirtstLoading;
+            set
             {
-                IsLoading = true;
-                // additional code here
-                await InitializeAsync();
-                // additional code here
-                IsLoading = false;
-            });
-            OpenSettingsCommand = new Command(OpenAppSettings);
-        }
-        public async void FirstRun()
-        {
-            IsFirtstLoading = true;
-            await InitializeAsync();
-            IsFirtstLoading = false;
+                _isFirtstLoading = value;
+                OnPropertyChanged();
+            }
         }
 
-            public async Task InitializeAsync()
+        public WeatherViewModel(Image mainImage)
         {
-           
-           
+            _mainImage = mainImage;
+            RefreshDataCommand = new Command(async () => await RefreshDataAsync(), () => !_isRefreshing);
+            OpenSettingsCommand = new Command(OpenAppSettings);
+            IsFirtstLoading = true;
+        }
+
+        public async void FirstRun()
+        {
+            IsFirtstLoading = true; // Show the loading indicator
+            await InitializeAsync();
+            IsFirtstLoading = false; // Hide the loading indicator
+        }
+
+        private async Task RefreshDataAsync()
+        {
+            if (_isRefreshing) return;
+
+            _isRefreshing = true;
+            IsLoading = true;
+            await InitializeAsync();
+            IsLoading = false;
+            _isRefreshing = false;
+        }
+
+        private async Task InitializeAsync()
+        {
             try
             {
                 var status = await RequestLocationPermissionAsync();
@@ -154,151 +203,138 @@ namespace yuda
                 {
                     ShowRequestPermissionButton = false;
 
-                    var request = new GeolocationRequest(GeolocationAccuracy.Best);
-                    var location = await Geolocation.GetLocationAsync(request);
+                    var location = await Geolocation.GetLocationAsync(new GeolocationRequest(GeolocationAccuracy.Best));
                     if (location != null)
                     {
                         var weatherData = await WeatherService.GetWeatherDataAsync(location.Latitude, location.Longitude);
                         if (weatherData != null)
                         {
-                            SetWeatherEmoji(weatherData);
-                            SetCarWashRecommendation(weatherData);
+                            UpdateWeatherData(weatherData);
                         }
                     }
                 }
                 else
                 {
-                    ShowRequestPermissionButton = true;
-                    // Set sad emoji
-                    //Emoji = "😔";
-                    Emoji = ImageSource.FromFile("error.gif");
-                    LocationName = $"Məkan təyin edilməyib";
-                    // Set formatted text for not granting location permission
-
-                    CarWashRecommendation = new FormattedString
-                    {
-                        Spans =
-                {
-                    new Span { Text = "Məkan icazəsi verilməyib. Təkrar icazə istə düyməsini sıxaraq yenidən cəhd edin.", FontAttributes = FontAttributes.Italic }
+                    SetPermissionDeniedUI();
                 }
-                    };
-                }
-            }
-            catch (FeatureNotEnabledException fneEx)
-            {
-                // Feature is not enabled on device
-                //Emoji = "😔";
-                Emoji = ImageSource.FromFile("error.gif");
-                LocationName = $"Məkan təyin edilməyib";
-                CarWashRecommendation = new FormattedString
-                {
-                    Spans =
-                {
-                    new Span { Text = "Məkan xidməti aktiv deyil. Zəhmət olmasa, cihazınızdakı məkan xidmətini aktiv edin.", FontAttributes = FontAttributes.Italic }
-                }
-                };
             }
             catch (Exception ex)
             {
-                Emoji = ImageSource.FromFile("error.gif");
-                LocationName = $"Məkan təyin edilməyib";
-                //Emoji = "😔";
-                CarWashRecommendation = new FormattedString
-                {
-                    Spans =
-            {
-                new Span { Text = "Xəta baş verdi: " + ex.Message, FontAttributes = FontAttributes.Italic }
-            }
-                };
+                SetErrorUI(ex.Message);
             }
             finally
             {
-                await Task.Delay(100);
-                mImage.IsAnimationPlaying = false;
-                await Task.Delay(100);
-                mImage.IsAnimationPlaying = true;
-
-           
-            }
-        }
-        public void OpenAppSettings()
-        {
-            var appSettingsUrl = "app-settings:az.codlee.yuda";
-            try
-            {
-                Launcher.OpenAsync(new Uri(appSettingsUrl));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Cannot open app settings: {ex.Message}");
+                ToggleImageAnimation();
             }
         }
 
         private async Task<PermissionStatus> RequestLocationPermissionAsync()
         {
             var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-
             if (status != PermissionStatus.Granted)
             {
                 status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
             }
-
             return status;
+        }
+
+        private void UpdateWeatherData(WeatherData weatherData)
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                SetWeatherEmoji(weatherData);
+                SetCarWashRecommendation(weatherData);
+
+                WeatherItems = new ObservableCollection<RainyDay>();
+                foreach (var day in weatherData.Forecast.ForecastDay)
+                {
+                    if (day.Day.AvgHumidity > 70 || day.Day.Condition.Text.Contains("Rain"))
+                    {
+                        var culture = new CultureInfo("az-Latn-AZ");
+                        var dateOfTheDay = Convert.ToDateTime(day.Date);
+                        WeatherItems.Add(new RainyDay
+                        {
+                            WeatherIcon = $"https:{day.Day.Condition.Icon}",
+                            Day = dateOfTheDay.ToString("dddd, dd.MM", culture),
+                            Temperature = $"{day.Day.AvgHumidity}%"
+                        });
+                        ShowRainyDays = true;
+                    }
+                }
+
+                LocationName = weatherData.Location.Name;
+            });
+        }
+
+        private void SetPermissionDeniedUI()
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Emoji = ImageSource.FromFile("error.gif");
+                LocationName = "Məkan təyin edilməyib";
+                CarWashRecommendation = new FormattedString
+                {
+                    Spans = { new Span { Text = "Məkan icazəsi verilməyib. Təkrar icazə istə düyməsini sıxaraq yenidən cəhd edin.", FontAttributes = FontAttributes.Italic } }
+                };
+                ShowRequestPermissionButton = true;
+            });
+        }
+
+        private void SetErrorUI(string errorMessage)
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Emoji = ImageSource.FromFile("error.gif");
+                LocationName = "Məkan təyin edilməyib";
+                CarWashRecommendation = new FormattedString
+                {
+                    Spans = { new Span { Text = $"Xəta baş verdi: {errorMessage}", FontAttributes = FontAttributes.Italic } }
+                };
+            });
+        }
+
+        private void ToggleImageAnimation()
+        {
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                _mainImage.IsAnimationPlaying = false;
+                await Task.Delay(100);
+                _mainImage.IsAnimationPlaying = true;
+            });
         }
 
         private void SetCarWashRecommendation(WeatherData weatherData)
         {
             var formattedText = new FormattedString();
-
             if (weatherData.IsCarWashRecommended)
             {
                 formattedText.Spans.Add(new Span { Text = "Avtomobilinizi yuya bilərsiniz", FontAttributes = FontAttributes.Bold });
-                formattedText.Spans.Add(new Span { Text = $", yaxın 7 gün ərzində " });
-                LocationName = $"{weatherData.Location.Name}";
-              //  formattedText.Spans.Add(new Span { Text = $"'{weatherData.Location.Name}' ", FontAttributes = FontAttributes.Bold });
-                formattedText.Spans.Add(new Span { Text = $"hava şəraiti əlverişlidir" });
+                formattedText.Spans.Add(new Span { Text = ", yaxın 7 gün ərzində hava şəraiti əlverişlidir" });
             }
             else
             {
                 formattedText.Spans.Add(new Span { Text = "Avtomobilinizi yumayın", FontAttributes = FontAttributes.Bold });
-                formattedText.Spans.Add(new Span { Text = $", yaxın 7 gün ərzində " });
-                LocationName = $"{weatherData.Location.Name}";
-               // formattedText.Spans.Add(new Span { Text = $"'{weatherData.Location.Name}' ", FontAttributes = FontAttributes.Bold });
-                formattedText.Spans.Add(new Span { Text = $"hava şəraiti əlverişsizdir" });
+                formattedText.Spans.Add(new Span { Text = ", yaxın 7 gün ərzində hava şəraiti əlverişsizdir" });
             }
-
             CarWashRecommendation = formattedText;
         }
-        private void SetWeatherEmoji(WeatherData condition)
+
+        private void SetWeatherEmoji(WeatherData weatherData)
         {
-            //if (condition.Contains("rain", StringComparison.OrdinalIgnoreCase))
-            //{
-            //    Emoji = "☔️";
-            //}
-            //else if (condition.Contains("cloud", StringComparison.OrdinalIgnoreCase))
-            //{
-            //    Emoji = "☁️";
-            //}
-            //else if (condition.Contains("sun", StringComparison.OrdinalIgnoreCase) || condition.Contains("clear", StringComparison.OrdinalIgnoreCase))
-            //{
-            //    Emoji = "☀️";
-            //}
-            //else
-            //{
-            //    Emoji = "❓";
-            //}
-            if (condition.IsCarWashRecommended)
-            {
-                //Emoji = "🚗🌊";
-                 Emoji = ImageSource.FromFile("sun.png");
+            Emoji = weatherData.IsCarWashRecommended
+                ? ImageSource.FromFile("sun.png")
+                : ImageSource.FromFile("rain.png");
+        }
 
+        public void OpenAppSettings()
+        {
+            try
+            {
+                Launcher.OpenAsync(new Uri("app-settings:az.rufatixx.yuda"));
             }
-
-            else
+            catch (Exception ex)
             {
-                Emoji = ImageSource.FromFile("rain.png"); 
-
-                //Emoji = "🚗☔";
+                Console.WriteLine($"Cannot open app settings: {ex.Message}");
             }
         }
     }
@@ -401,5 +437,10 @@ namespace yuda
         public Condition Condition { get; set; }
     }
 
-
+    public class RainyDay
+    {
+        public string WeatherIcon { get; set; }
+        public string Day { get; set; }
+        public string Temperature { get; set; }
+    }
 }

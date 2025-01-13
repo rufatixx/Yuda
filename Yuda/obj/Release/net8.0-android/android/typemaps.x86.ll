@@ -385,7 +385,7 @@ target triple = "i686-unknown-linux-android21"
 		ptr null; uint8_t* java_map (0x0)
 	}, ; 31
 	%struct.TypeMapModule {
-		[16 x i8] c"\A5f&p\D7=1E\AAo_=\8Fo\17\96", ; module_uuid: 702666a5-3dd7-4531-aa6f-5f3d8f6f1796
+		[16 x i8] c"\A6\F7r\AC\C7\D5\EEF\87\B3\EEm\BC\BCeW", ; module_uuid: ac72f7a6-d5c7-46ee-87b3-ee6dbcbc6557
 		i32 2, ; uint32_t entry_count (0x2)
 		i32 0, ; uint32_t duplicate_count (0x0)
 		ptr @module32_managed_to_java, ; TypeMapModuleEntry* map
@@ -7218,11 +7218,11 @@ target triple = "i686-unknown-linux-android21"
 
 @module32_managed_to_java = internal dso_local constant [2 x %struct.TypeMapModuleEntry] [
 	%struct.TypeMapModuleEntry {
-		i32 33554482, ; uint32_t type_token_id (0x2000032)
+		i32 33554490, ; uint32_t type_token_id (0x200003a)
 		i32 433; uint32_t java_map_index (0x1b1)
 	}, ; 0
 	%struct.TypeMapModuleEntry {
-		i32 33554483, ; uint32_t type_token_id (0x2000033)
+		i32 33554491, ; uint32_t type_token_id (0x200003b)
 		i32 236; uint32_t java_map_index (0xec)
 	} ; 1
 ], align 4
@@ -9666,7 +9666,7 @@ target triple = "i686-unknown-linux-android21"
 	}, ; 235
 	%struct.TypeMapJava {
 		i32 32, ; uint32_t module_index (0x20)
-		i32 33554483, ; uint32_t type_token_id (0x2000033)
+		i32 33554491, ; uint32_t type_token_id (0x200003b)
 		i32 966; uint32_t java_name_index (0x3c6)
 	}, ; 236
 	%struct.TypeMapJava {
@@ -10651,7 +10651,7 @@ target triple = "i686-unknown-linux-android21"
 	}, ; 432
 	%struct.TypeMapJava {
 		i32 32, ; uint32_t module_index (0x20)
-		i32 33554482, ; uint32_t type_token_id (0x2000032)
+		i32 33554490, ; uint32_t type_token_id (0x200003a)
 		i32 965; uint32_t java_name_index (0x3c5)
 	}, ; 433
 	%struct.TypeMapJava {

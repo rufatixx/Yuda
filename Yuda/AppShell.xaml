@@ -5,13 +5,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:yuda"
     Shell.FlyoutBehavior="Disabled"
-    xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui">
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui">
 
 
 
+  
     <Shell.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="Transparent" />
+        <toolkit:StatusBarBehavior
+            StatusBarColor="{AppThemeBinding Light=#f8f8f8, Dark=#121212}"
+            StatusBarStyle="{AppThemeBinding Light=DarkContent, Dark=LightContent}" />
     </Shell.Behaviors>
+
+
    <ShellContent
        x:Name="shellContent"
         Title="Home"

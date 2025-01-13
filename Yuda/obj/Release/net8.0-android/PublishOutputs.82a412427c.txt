@@ -1,4 +1,0 @@
-/Users/admin/Projects/Yuda/Yuda/bin/Release/net8.0-android/publish/az.rufatixx.yuda-Signed.aab
-/Users/admin/Projects/Yuda/Yuda/bin/Release/net8.0-android/publish/az.rufatixx.yuda.aab
-/Users/admin/Projects/Yuda/Yuda/bin/Release/net8.0-android/publish/az.rufatixx.yuda-Signed.apk
-/Users/admin/Projects/Yuda/Yuda/bin/Release/net8.0-android/publish/_Microsoft.Android.Resource.Designer.dll
